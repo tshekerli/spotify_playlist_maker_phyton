@@ -15,8 +15,8 @@ url = f"https://www.billboard.com/charts/hot-100/{user_time}"
 response = requests.get(url)
 songs = []
 soup = bs4.BeautifulSoup(response.text, "html.parser")
-for list in soup.find_all(class_="o-chart-results-list-row-container"):
-    title = list.find("h3", class_="c-title").getText().strip()
+for list in soup.find_all(class_="o-chart-results-list-row-container"): #Box containing the list is called "o-chart-results-list-row-container" class
+    title = list.find("h3", class_="c-title").getText().strip() #Inside the "o-chart-results-list-row-container" class we take h3 "c-title" class to get each song title
     songs.append(title)
 
 
